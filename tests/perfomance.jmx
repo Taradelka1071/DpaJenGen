@@ -9,7 +9,7 @@
     </TestPlan>
     <hashTree>
       <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-Dev">
-        <stringProp name="propFilePath">Dev.properties</stringProp>
+        <stringProp name="propFilePath">dev.properties</stringProp>
       </com.tag.jmeter.ext.config.PropertyReader>
       <hashTree/>
       <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults">
@@ -36,7 +36,7 @@
       </SetupThreadGroup>
       <hashTree>
         <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-Low-load">
-          <stringProp name="propFilePath">Low-load.properties</stringProp>
+          <stringProp name="propFilePath">low-load.properties</stringProp>
         </com.tag.jmeter.ext.config.PropertyReader>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Token">
@@ -179,7 +179,7 @@
         </IfController>
         <hashTree/>
         <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-Medium-load">
-          <stringProp name="propFilePath">Medium-load.properties</stringProp>
+          <stringProp name="propFilePath">medium-load.properties</stringProp>
         </com.tag.jmeter.ext.config.PropertyReader>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Token">
@@ -315,7 +315,7 @@
         </IfController>
         <hashTree/>
         <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-High-load">
-          <stringProp name="propFilePath">High-load.properties</stringProp>
+          <stringProp name="propFilePath">high-load.properties</stringProp>
         </com.tag.jmeter.ext.config.PropertyReader>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Token">
