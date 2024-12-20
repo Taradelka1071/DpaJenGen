@@ -8,10 +8,6 @@
       </elementProp>
     </TestPlan>
     <hashTree>
-      <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-Dev" enabled="false">
-        <stringProp name="propFilePath">dev.properties</stringProp>
-      </com.tag.jmeter.ext.config.PropertyReader>
-      <hashTree/>
       <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-property">
         <stringProp name="propFilePath">property</stringProp>
       </com.tag.jmeter.ext.config.PropertyReader>
