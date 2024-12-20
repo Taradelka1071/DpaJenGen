@@ -12,6 +12,18 @@
         <stringProp name="propFilePath">dev.properties</stringProp>
       </com.tag.jmeter.ext.config.PropertyReader>
       <hashTree/>
+      <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-Low-load">
+        <stringProp name="propFilePath">low-load.properties</stringProp>
+      </com.tag.jmeter.ext.config.PropertyReader>
+      <hashTree/>
+      <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-Medium-load">
+        <stringProp name="propFilePath">medium-load.properties</stringProp>
+      </com.tag.jmeter.ext.config.PropertyReader>
+      <hashTree/>
+      <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-High-load">
+        <stringProp name="propFilePath">high-load.properties</stringProp>
+      </com.tag.jmeter.ext.config.PropertyReader>
+      <hashTree/>
       <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults">
         <stringProp name="HTTPSampler.domain">${__P(test.environment.hostname)}</stringProp>
         <stringProp name="HTTPSampler.port">${__P(test.environment.port)}</stringProp>
@@ -35,9 +47,11 @@
         </elementProp>
       </SetupThreadGroup>
       <hashTree>
-        <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-Low-load">
-          <stringProp name="propFilePath">low-load.properties</stringProp>
-        </com.tag.jmeter.ext.config.PropertyReader>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller">
+          <stringProp name="IfController.condition">${__javaScript(&quot;${loadType}&quot; == &quot;low-load&quot;,)}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Token">
           <stringProp name="HTTPSampler.path">oauth/token?grant_type=password&amp;username=drankly-premium&amp;password=7RNqpfizDLgEctr</stringProp>
@@ -151,13 +165,6 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller">
-          <stringProp name="IfController.condition">${__javaScript(&quot;${loadType}&quot; == &quot;low-load&quot;,)}
-</stringProp>
-          <boolProp name="IfController.evaluateAll">false</boolProp>
-          <boolProp name="IfController.useExpression">true</boolProp>
-        </IfController>
-        <hashTree/>
       </hashTree>
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Thread Group-Medium Load">
         <stringProp name="ThreadGroup.num_threads">${__P(anonymous.group2.usercount)}</stringProp>
@@ -177,10 +184,6 @@
           <boolProp name="IfController.evaluateAll">false</boolProp>
           <boolProp name="IfController.useExpression">true</boolProp>
         </IfController>
-        <hashTree/>
-        <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-Medium-load">
-          <stringProp name="propFilePath">medium-load.properties</stringProp>
-        </com.tag.jmeter.ext.config.PropertyReader>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Token">
           <stringProp name="HTTPSampler.path">oauth/token?grant_type=password&amp;username=drankly-premium&amp;password=7RNqpfizDLgEctr</stringProp>
@@ -314,10 +317,6 @@
           <boolProp name="IfController.useExpression">true</boolProp>
         </IfController>
         <hashTree/>
-        <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-High-load">
-          <stringProp name="propFilePath">high-load.properties</stringProp>
-        </com.tag.jmeter.ext.config.PropertyReader>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Token">
           <stringProp name="HTTPSampler.path">oauth/token?grant_type=password&amp;username=drankly-premium&amp;password=7RNqpfizDLgEctr</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -397,7 +396,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Analogs" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Analogs">
           <stringProp name="HTTPSampler.path">cocktails/${cocktailId}/analogs</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
