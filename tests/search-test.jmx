@@ -17,7 +17,7 @@
       </HeaderManager>
       <hashTree/>
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Thread Group">
-        <stringProp name="ThreadGroup.num_threads">${(USERS}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${USERS}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${RAMPUP}</stringProp>
         <stringProp name="ThreadGroup.duration">${DURATION}</stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
