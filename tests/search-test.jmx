@@ -16,14 +16,10 @@
         </collectionProp>
       </HeaderManager>
       <hashTree/>
-      <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader-property">
-        <stringProp name="propFilePath">property.properties</stringProp>
-      </com.tag.jmeter.ext.config.PropertyReader>
-      <hashTree/>
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Thread Group">
-        <stringProp name="ThreadGroup.num_threads">${__P(USERS)}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">${__P(RAMPUP)}</stringProp>
-        <stringProp name="ThreadGroup.duration">${__P(DURATION)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${(USERS}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${RAMPUP}</stringProp>
+        <stringProp name="ThreadGroup.duration">${DURATION}</stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
