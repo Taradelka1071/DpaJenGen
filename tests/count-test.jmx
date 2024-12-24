@@ -25,10 +25,10 @@
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Token">
-          <stringProp name="HTTPSampler.domain">3.78.91.193</stringProp>
+          <stringProp name="HTTPSampler.domain">${__P(url)}</stringProp>
           <stringProp name="HTTPSampler.port">80</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.path">oauth/token?grant_type=password&amp;username=drankly-premium&amp;password=7RNqpfizDLgEctr</stringProp>
+          <stringProp name="HTTPSampler.path">oauth/token?grant_type=password&amp;username=${__P(username)}&amp;password=${__P(password)}</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
