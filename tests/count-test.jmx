@@ -37,7 +37,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${__P(authorization)}</stringProp>
+                <stringProp name="Header.value">${__P(authorization)}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-type</stringProp>
@@ -70,7 +70,6 @@
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Analogs">
           <stringProp name="HTTPSampler.domain">${__P(url)}</stringProp>
-          <stringProp name="HTTPSampler.port">80</stringProp>
           <stringProp name="HTTPSampler.path">cocktails/${cocktailId}/analogs</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
