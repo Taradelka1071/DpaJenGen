@@ -7,10 +7,6 @@
       </elementProp>
     </TestPlan>
     <hashTree>
-      <com.tag.jmeter.ext.config.PropertyReader guiclass="TestBeanGUI" testclass="com.tag.jmeter.ext.config.PropertyReader" testname="Property File Reader">
-        <stringProp name="propFilePath">D:\Drankly\jmeter\config\property.properties</stringProp>
-      </com.tag.jmeter.ext.config.PropertyReader>
-      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
         <stringProp name="ThreadGroup.num_threads">${__P(usercount)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${__P(rampup)}</stringProp>
@@ -27,7 +23,6 @@
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Token">
           <stringProp name="HTTPSampler.domain">${__P(url)}</stringProp>
           <stringProp name="HTTPSampler.port">80</stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.path">oauth/token?grant_type=password&amp;username=${__P(username)}&amp;password=${__P(password)}</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -42,7 +37,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic QUxDT0hPTElDUzpQT1dFUg==</stringProp>
+                <stringProp name="Header.value">Basic ${__P(authorization)}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-type</stringProp>
@@ -58,6 +53,43 @@
             <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND</stringProp>
             <stringProp name="Scope.variable"></stringProp>
           </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Analogs">
+          <stringProp name="HTTPSampler.domain">${__P(url)}</stringProp>
+          <stringProp name="HTTPSampler.port">80</stringProp>
+          <stringProp name="HTTPSampler.path">cocktails/${cocktailId}/analogs</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="cocktailId" elementType="Argument">
+                <stringProp name="Argument.name">cocktailId</stringProp>
+                <stringProp name="Argument.value">${__Random(1,1000,)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
           <hashTree/>
         </hashTree>
       </hashTree>
